@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+# kind - the resource you want to provision inside k8s
+metadata:
+  name: nginx-deployment
+  # name of the resource
+  labels:
+    app: nginx
+spec:
+  replicas: 4
+  # adjust replica set 
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+  - port: 80
+    targetPort: 80
+  type: NodePort
+
