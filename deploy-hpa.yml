@@ -3,6 +3,7 @@ kind: Deployment
 # kind - the resource you want to provision inside k8s
 metadata:
   name: hpa-example
+  namespace: test
  # name of the resource
   labels:
     app: hpa-example

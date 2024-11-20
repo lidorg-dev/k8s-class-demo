@@ -22,11 +22,5 @@ spec:
         image: wardviaene/k8s-demo
         ports:
         - containerPort: 3000
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 2000
-          initialDelaySeconds: 2
-          timeoutSeconds: 5
       
 

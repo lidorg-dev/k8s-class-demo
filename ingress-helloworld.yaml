@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-helloworld
+spec:
+  rules:
+  - host: hello.foobar.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: helloworld-service
+            port:
+              number: 3000
+  ingressClassName: nginx
