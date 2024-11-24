@@ -121,3 +121,9 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+persistance:
+  enabled: true
+  storageClassName: 
+  accessModes: ReadWriteOnce
+  storage: 2Gi

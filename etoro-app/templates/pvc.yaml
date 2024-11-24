@@ -1,0 +1,15 @@
+{{- if .Values.persistance.enabled -}}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ include "etoro-app.fullname" . }}
+  labels:
+    {{- include "etoro-app.labels" . | nindent 4 }}
+spec:
+  storageClassName: {{ .Values.persistance.storageClassName }}
+  accessModes:
+    - {{ .Values.persistance.accessModes | default "ReadWriteMany" }}
+  resources:
+    requests:
+      storage: {{ .Values.persistance.storage | default "4Gi" }}
+{{- end -}}

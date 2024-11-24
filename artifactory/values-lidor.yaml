@@ -111,7 +111,7 @@ ingress:
   defaultBackend:
     enabled: true
   ## Used to create an Ingress record.
-  hosts: jforg.foobar.com
+  hosts: [jforg.foobar.com]
   routerPath: /
   artifactoryPath: /artifactory/
   rtfsPath: /artifactory/service/rtfs/
@@ -213,9 +213,9 @@ aws:
 ## @param containerSecurityContext.seccompProfile.type Set container's Security Context seccomp profile
 ##
 containerSecurityContext:
-  enabled: true
-  runAsNonRoot: true
-  privileged: false
+  enabled: false
+  runAsNonRoot: false
+  privileged: true
   allowPrivilegeEscalation: false
   seccompProfile:
     type: RuntimeDefault
@@ -1439,7 +1439,7 @@ mc:
       extraConfig: 'acceptCount="100"'
 ## Nginx
 nginx:
-  enabled: true
+  enabled: false
   kind: Deployment
   name: nginx
   labels: {}
@@ -1681,7 +1681,7 @@ postgresql:
     listenAddresses: "*"
     maxConnections: "1500"
   persistence:
-    enabled: true
+    enabled: false
     size: 200Gi
     # existingClaim:
   service:
@@ -1696,9 +1696,9 @@ postgresql:
     tolerations: []
   resources: {}
   securityContext:
-    enabled: true
+    enabled: false
   containerSecurityContext:
-    enabled: true
+    enabled: false
     # requests:
     #   memory: "512Mi"
     #   cpu: "100m"
