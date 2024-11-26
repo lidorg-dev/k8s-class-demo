@@ -1,0 +1,8 @@
+apiVersion: "openebs.io/v1beta2"
+kind: DiskPool
+metadata:
+  name: pool-on-node-1
+  namespace: openebs
+spec:
+  node: k8s-node-0
+  disks: ["/dev/sdb"]
