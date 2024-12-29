@@ -7,7 +7,7 @@ metadata:
   labels:
     app: nginx
 spec:
-  replicas: 4
+  replicas: 2
   # adjust replica set 
   selector:
     matchLabels:
@@ -33,5 +33,5 @@ spec:
   ports:
   - port: 80
     targetPort: 80
-  type: NodePort
+  type: LoadBalancer
 
